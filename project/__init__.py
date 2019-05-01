@@ -1,0 +1,1 @@
+from hacker_news.tasks import app
