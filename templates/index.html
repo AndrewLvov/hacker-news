@@ -1,9 +1,29 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Hacker News</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
 <h1>Hacker News</h1>
+<div class="stories">
+    {% for story in stories %}
+        <div class="story">
+            <div class="title">
+                <a href="https://news.ycombinator.com/item?id={{ story.id }}">{{ story.title }}</a></div>
+            {% if story.url %}
+            <div class="url"><a href="{{ story.url }}">{{ story.url|truncatechars:50 }}</a></div>
+            {% endif %}
+            <div class="votes">Score: {{ story.latest_votes }}</div>
+            <div class="posted time">Posted: {{ story.posted }}</div>
+            {% if story.content %}
+            <div class="content">{{ story.content|truncatechars:1024 }}</div>
+            {% endif %}
+
+        </div>
+    {% endfor %}
+</div>
 </body>
 </html>

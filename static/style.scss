@@ -1,0 +1,26 @@
+body {
+  font-family: Lato, sans-serif;
+  padding: 30px;
+  line-height: 1.7;
+}
+
+.stories {
+  display: flex;
+  flex-flow: row wrap;
+
+  //height: 95vh;
+  // background-image: url();
+  // background-size: cover;
+  // background-position: top;
+  //clip-path: polygon(5vw 0, 95vw 0, 100vw 5vh, 100vw 95vh, 95vw 100vh, 5vw 100vh, 0 95vh, 0 5vh);
+
+  .story {
+    box-sizing: border-box;
+    margin: 10px;
+    padding: 10px;
+    background-image: linear-gradient(
+                    to right bottom,
+                    rgba(191, 181, 0, 0.8),
+                    rgba(214, 10, 0, 0.8));
+  }
+}

@@ -120,3 +120,30 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),  # resolves to `node_modules/` in the project root
+]
+
+CELERY_BROKER_URL = 'redis://localhost'
+CELERY_BEAT_SCHEDULE = {
+    'get-new_stories': {
+        'task': 'hacker_news.tasks.get_new_stories',
+       'schedule': 60.0,
+       'args': (),
+    },
+    'update-story-votes': {
+        'task': 'hacker_news.tasks.update_story_votes',
+        'schedule': 600.0,
+        'args': (),
+    },
+    # # Executes every Friday at 4pm
+    # 'send-notification-on-friday-afternoon': {
+    #      'task': 'my_app.tasks.send_notification',
+    #      'schedule': crontab(hour=16, day_of_week=5),
+    #     },
+}
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
