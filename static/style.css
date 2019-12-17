@@ -1,0 +1,18 @@
+body {
+  font-family: Lato, sans-serif;
+  padding: 30px;
+  line-height: 1.7;
+}
+
+.stories {
+  display: flex;
+  flex-flow: row wrap;
+}
+.stories .story {
+  box-sizing: border-box;
+  margin: 10px;
+  padding: 10px;
+  background-image: linear-gradient(to right bottom, rgba(191, 181, 0, 0.8), rgba(214, 10, 0, 0.8));
+}
+
+/*# sourceMappingURL=style.css.map */
