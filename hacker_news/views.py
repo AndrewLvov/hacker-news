@@ -37,14 +37,3 @@ class IndexView(TemplateView):
         })
 
         return ctx
-
-=======
-        ctx.update({
-            'stories':
-                sorted([s for s in Story.objects.all()
-                        if s.latest_votes() and s.latest_votes() > MIN_SCORE],
-                        key=sorting_functions[sort_by]),
-        })
-
-        return ctx
->>>>>>> Stashed changes
